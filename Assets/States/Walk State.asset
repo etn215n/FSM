@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4eb952bdc2a0a0040b2dc00749671173, type: 3}
-  m_Name: New Walk State
+  m_Name: Walk State
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
-  idleState: {fileID: 0}
+  stateMachine: {fileID: 11400000, guid: ead681d678c079f40ac9d2af1d149960, type: 2}
+  idleState: {fileID: 11400000, guid: b4274c3617879e84aad65a487a4b1b9a, type: 2}

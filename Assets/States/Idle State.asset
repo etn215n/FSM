@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9262453a7837543827db26175fbdc7, type: 3}
   m_Name: Idle State
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
-  walkState: {fileID: 0}
+  stateMachine: {fileID: 11400000, guid: ead681d678c079f40ac9d2af1d149960, type: 2}
+  walkState: {fileID: 11400000, guid: 886de1aaa9541314c86bed734f3019e6, type: 2}

@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574c94baaf4bf404a8b96757f0f82cd8, type: 3}
   m_Name: Player FSM
   m_EditorClassIdentifier: 
-  entryState: {fileID: 0}
+  entryState: {fileID: 11400000, guid: b4274c3617879e84aad65a487a4b1b9a, type: 2}
   subject: {fileID: 0}
