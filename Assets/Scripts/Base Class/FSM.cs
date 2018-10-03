@@ -4,9 +4,6 @@ public class FSM :ScriptableObject
 {
     public FSMState entryState;
 
-    [HideInInspector]
-    public GameObject subject;
-
     private FSMState currentState;
 
     public void Start()

@@ -7,11 +7,13 @@ public class IdleState : FSMState
 
     public override void OnStateEnter()
     {
-        
+        Debug.Log("Enter Idle");
     }
 
     public override void OnStateUpdate()
     {
+        if (Input.GetKey(KeyCode.Space))
+            OnStateTransition(walkState);
     }
 
     public override void OnStateExit()
