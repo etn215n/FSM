@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public FSM playerFSM;
 
+
     void Start()
     {
-        playerFSM.subject = this.gameObject;
         playerFSM.Start();
     }
 

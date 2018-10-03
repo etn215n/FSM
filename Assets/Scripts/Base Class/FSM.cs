@@ -5,9 +5,6 @@ public class FSM
 {
     public FSMState entryState;
 
-    [HideInInspector]
-    public GameObject subject;
-
     private FSMState currentState;
 
     public void Start()
