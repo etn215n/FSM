@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FSMState : ScriptableObject
+public class FSMState
 {
     public FSM stateMachine;
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class FSM :ScriptableObject
+[System.Serializable]
+public class FSM
 {
     public FSMState entryState;
 

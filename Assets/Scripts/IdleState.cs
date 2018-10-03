@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu (menuName = "Pluggable FSM/Idle State")]
 public class IdleState : FSMState
 {
     public FSMState walkState;
