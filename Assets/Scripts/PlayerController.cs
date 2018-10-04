@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        playerFSM.Start();
+        playerFSM = new FSM(this.gameObject);
+        playerFSM.AddState(new PlayerIdleState(playerFSM));
+        playerFSM.AddState(new PlayerWalkState(playerFSM));
     }
 
     void Update()

@@ -1,15 +1,46 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
-[System.Serializable]
 public class FSM
 {
-    public FSMState entryState;
-
+    private List<FSMState> stateList;
     private FSMState currentState;
+    private GameObject character;
 
-    public void Start()
+    public FSM(GameObject character)
     {
-        currentState = entryState;
+        stateList = new List<FSMState>();
+        this.character = character;
+    }
+
+    public void AddState(FSMState newState)
+    {
+        if (newState.ID == StateID.Null)
+        {
+            Debug.Log("Invalid State.");
+            return;
+        }
+
+        if (stateList.Count == 0)
+        {
+            currentState = newState;
+        }
+
+        foreach(FSMState state in stateList)
+        {
+            if (state.ID == newState.ID)
+            {
+                Debug.Log("FSM already contains this state.");
+                return;
+            }
+        }
+
+        stateList.Add(newState);
+    } 
+
+    public FSMState CurrentState
+    {
+        get { return currentState; }
     }
 
     public void Update()
@@ -17,10 +48,23 @@ public class FSM
         currentState.OnStateUpdate();
     }
 
-    public void SetState(FSMState state)
+    public void SetState(StateID nextStateID)
     {
-        if (state != null)
-            currentState = state;
+        if (nextStateID == StateID.Null)
+        {
+            Debug.Log("Invalid State.");
+            return;
+        }
+
+        foreach (FSMState state in stateList)
+        {
+            if (state.ID == nextStateID)
+            {
+                currentState.OnStateExit();
+                currentState = state;
+                currentState.OnStateEnter();
+            }
+        }
     }
 }
 
