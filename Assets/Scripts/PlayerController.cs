@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
-    public FSM playerFSM;
+    private FSM playerFSM;
 
 
     void Start()

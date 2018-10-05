@@ -5,6 +5,7 @@ public class FSM
 {
     private List<FSMState> stateList;
     private FSMState currentState;
+    private FSMState lastState;
     private GameObject character;
 
     public FSM(GameObject character)
@@ -43,14 +44,24 @@ public class FSM
         get { return currentState; }
     }
 
+    public FSMState LastState
+    {
+        get { return lastState; }
+    }
+
+    public void Start()
+    {
+        currentState.OnStateEnter();
+    }
+
     public void Update()
     {
         currentState.OnStateUpdate();
     }
 
-    public void SetState(StateID nextStateID)
+    public void SetState(StateID stateID)
     {
-        if (nextStateID == StateID.Null)
+        if (stateID == StateID.Null)
         {
             Debug.Log("Invalid State.");
             return;
@@ -58,13 +69,16 @@ public class FSM
 
         foreach (FSMState state in stateList)
         {
-            if (state.ID == nextStateID)
+            if (state.ID == stateID)
             {
                 currentState.OnStateExit();
+                lastState = currentState;
                 currentState = state;
                 currentState.OnStateEnter();
             }
         }
     }
+
+    public GameObject Character { get { return character; } }
 }
 

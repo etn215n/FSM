@@ -60,4 +60,5 @@ public class FSMState
     public virtual void OnStateUpdate() {}
     public virtual void OnStateExit() {}
     public virtual void OnHandleInput() {}
+    public virtual void GetCharacterComponent() {}
 }

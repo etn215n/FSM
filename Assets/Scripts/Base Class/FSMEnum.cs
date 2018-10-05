@@ -2,12 +2,18 @@
 {
     Null,
     Idle,
-    Walk
+    Walk,
+    Red,
+    Yellow,
+    Green
 }
 
 public enum Transition
 {
     Null,
     ToIdle,
-    ToWalk
+    ToWalk,
+    ToRed,
+    ToYellow,
+    ToGreen
 }
