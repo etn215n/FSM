@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 
-public class PlayerWalkState : FSMState
-{  
+public class PlayerRunState : FSMState
+{
     private Animator anim;
     private CustomInput playerInput;
     private Rigidbody2D rb;
     private FreeMove freeMove;
 
-    public PlayerWalkState() : base()
+    public PlayerRunState() : base()
     {
-        this.stateID = StateID.Walk;
+        this.stateID = StateID.Run;
         transitionMap.Add(Transition.ToIdle, StateID.Idle);
-        transitionMap.Add(Transition.ToRun, StateID.Run);
+        transitionMap.Add(Transition.ToWalk, StateID.Walk);
     }
 
     public override void OnStateSetUp()
@@ -20,12 +20,12 @@ public class PlayerWalkState : FSMState
         anim = ownerFSM.GetGameObject().GetComponent<Animator>();
         playerInput = ownerFSM.GetGameObject().GetComponent<PlayerController>().playerInput;
         freeMove = new FreeMove();
-        freeMove.moveSpeed = 100f;
+        freeMove.moveSpeed = 300f;
     }
 
     public override void OnStateEnter()
     {
-        anim.SetInteger("StateID", 2);
+        anim.SetInteger("StateID", 3);
         anim.SetFloat("MoveX", playerInput.currentAxis.x);
         anim.SetFloat("MoveY", playerInput.currentAxis.y);
     }
@@ -40,10 +40,12 @@ public class PlayerWalkState : FSMState
 
     public override void OnHandleInput()
     {
-        if (playerInput.Get2DInput() == Vector2.zero)
+        if (playerInput.Get2DInput() != Vector2.zero)
+        {
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+                SetTransition(Transition.ToWalk);
+        }
+        else
             SetTransition(Transition.ToIdle);
-        
-        if (Input.GetKey(KeyCode.LeftShift))
-            SetTransition(Transition.ToRun);
     }
 }

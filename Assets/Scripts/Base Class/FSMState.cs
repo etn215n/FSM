@@ -8,9 +8,8 @@ public class FSMState
     protected StateID stateID;
     protected Dictionary<Transition, StateID> transitionMap;
 
-    public FSMState (FSM ownerFSM)
+    public FSMState ()
     {
-        this.ownerFSM = ownerFSM;
         transitionMap = new Dictionary<Transition, StateID>();
     }
 
@@ -56,9 +55,14 @@ public class FSMState
         ownerFSM.SetState(transitionMap[transition]);
     }
 
+    public void SetFSM(FSM ownerFSM)
+    {
+        this.ownerFSM = ownerFSM;
+    }
+   
+    public virtual void OnStateSetUp() {}
     public virtual void OnStateEnter() {}
     public virtual void OnStateUpdate() {}
-    public virtual void OnStateExit() {}
     public virtual void OnHandleInput() {}
-    public virtual void GetCharacterComponent() {}
+    public virtual void OnStateExit() {}
 }

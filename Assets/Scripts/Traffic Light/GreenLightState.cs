@@ -8,12 +8,16 @@ public class GreenLightState : FSMState
     public float timePool;
     private SpriteRenderer greenLight;
 
-    public GreenLightState(FSM ownerFSM) : base(ownerFSM)
+    public GreenLightState() : base()
     {
-        greenLight = ownerFSM.Character.transform.Find("Green Light").gameObject.GetComponent<SpriteRenderer>();
         this.stateID = StateID.Green;
         transitionMap.Add(Transition.ToYellow, StateID.Yellow);
-        timePool = 3f;
+        timePool = 1f;
+    }
+
+    public override void OnStateSetUp()
+    {
+        greenLight = ownerFSM.GetGameObject().transform.Find("Green Light").gameObject.GetComponent<SpriteRenderer>();
     }
 
     public override void OnStateEnter()

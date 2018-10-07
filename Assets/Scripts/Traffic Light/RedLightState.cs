@@ -8,12 +8,16 @@ public class RedLightState : FSMState
     public float timePool;
     private SpriteRenderer redLight;
 
-    public RedLightState(FSM ownerFSM) : base(ownerFSM)
-    {
-        redLight = ownerFSM.Character.transform.Find("Red Light").gameObject.GetComponent<SpriteRenderer>();
+    public RedLightState() : base()
+    { 
         this.stateID = StateID.Red;
         transitionMap.Add(Transition.ToYellow, StateID.Yellow);
-        timePool = 3f;
+        timePool = 1f;
+    }
+
+    public override void OnStateSetUp()
+    {
+        redLight = ownerFSM.GetGameObject().transform.Find("Red Light").gameObject.GetComponent<SpriteRenderer>();
     }
 
     public override void OnStateEnter()

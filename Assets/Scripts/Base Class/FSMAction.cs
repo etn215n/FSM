@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FSMAction : ScriptableObject
+public abstract class FSMAction
 {
     
 }

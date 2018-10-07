@@ -6,12 +6,12 @@ public class FSM
     private List<FSMState> stateList;
     private FSMState currentState;
     private FSMState lastState;
-    private GameObject character;
+    private GameObject gameObject;
 
-    public FSM(GameObject character)
+    public FSM(GameObject gameObject)
     {
         stateList = new List<FSMState>();
-        this.character = character;
+        this.gameObject = gameObject;
     }
 
     public void AddState(FSMState newState)
@@ -37,6 +37,8 @@ public class FSM
         }
 
         stateList.Add(newState);
+        newState.SetFSM(this);
+        newState.OnStateSetUp();
     } 
 
     public FSMState CurrentState
@@ -79,6 +81,6 @@ public class FSM
         }
     }
 
-    public GameObject Character { get { return character; } }
+    public GameObject GetGameObject() { return gameObject; }
 }
 

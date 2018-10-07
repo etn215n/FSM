@@ -8,13 +8,17 @@ public class YellowLightState : FSMState
     public float timePool;
     private SpriteRenderer yellowLight;
 
-    public YellowLightState(FSM ownerFSM) : base(ownerFSM)
+    public YellowLightState() : base()
     {
-        yellowLight = ownerFSM.Character.transform.Find("Yellow Light").gameObject.GetComponent<SpriteRenderer>();
         this.stateID = StateID.Yellow;
         transitionMap.Add(Transition.ToGreen, StateID.Green);
         transitionMap.Add(Transition.ToRed, StateID.Red);
-        timePool = 1.5f;
+        timePool = 1f;
+    }
+
+    public override void OnStateSetUp()
+    {
+        yellowLight = ownerFSM.GetGameObject().transform.Find("Yellow Light").gameObject.GetComponent<SpriteRenderer>();
     }
 
     public override void OnStateEnter()
