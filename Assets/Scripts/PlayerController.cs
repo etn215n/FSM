@@ -14,12 +14,18 @@ public class PlayerController : MonoBehaviour
         playerFSM.AddState(new PlayerIdleState());
         playerFSM.AddState(new PlayerWalkState());
         playerFSM.AddState(new PlayerRunState());
+        playerFSM.AddState(new PlayerInteractState());
         playerFSM.Start();
     }
 
     void Update()
     {
         playerFSM.Update();
+    }
+
+    void FixedUpdate()
+    {
+        playerFSM.FixedUpdate();
     }
     
 }

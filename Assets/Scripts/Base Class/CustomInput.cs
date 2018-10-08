@@ -14,8 +14,10 @@ public class CustomInput
         else
             input.x = 0;
 
-        if (input != Vector2.zero)
-            currentAxis = input;
+        currentAxis = input;
+
+        if (currentAxis != Vector2.zero && currentAxis != savedAxis)
+            savedAxis = currentAxis;
 
         return input;
     }

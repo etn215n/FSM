@@ -12,6 +12,7 @@ public class PlayerRunState : FSMState
         this.stateID = StateID.Run;
         transitionMap.Add(Transition.ToIdle, StateID.Idle);
         transitionMap.Add(Transition.ToWalk, StateID.Walk);
+        transitionMap.Add(Transition.ToInteract, StateID.Interact);
     }
 
     public override void OnStateSetUp()
@@ -35,6 +36,10 @@ public class PlayerRunState : FSMState
         OnHandleInput();
         anim.SetFloat("MoveX", playerInput.currentAxis.x);
         anim.SetFloat("MoveY", playerInput.currentAxis.y);
+    }
+
+    public override void OnStateFixedUpdate()
+    {
         freeMove.Move(playerInput.currentAxis, rb);
     }
 
@@ -44,6 +49,8 @@ public class PlayerRunState : FSMState
         {
             if (Input.GetKeyUp(KeyCode.LeftShift))
                 SetTransition(Transition.ToWalk);
+            else if (Input.GetKey(KeyCode.E))
+                SetTransition(Transition.ToInteract);
         }
         else
             SetTransition(Transition.ToIdle);

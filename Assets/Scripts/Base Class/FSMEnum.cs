@@ -4,6 +4,7 @@
     Idle,
     Walk,
     Run,
+    Interact,
     Red,
     Yellow,
     Green
@@ -15,6 +16,7 @@ public enum Transition
     ToIdle,
     ToWalk,
     ToRun,
+    ToInteract,
     ToRed,
     ToYellow,
     ToGreen

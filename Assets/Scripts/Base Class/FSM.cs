@@ -61,6 +61,11 @@ public class FSM
         currentState.OnStateUpdate();
     }
 
+    public void FixedUpdate()
+    {
+        currentState.OnStateFixedUpdate();
+    }
+
     public void SetState(StateID stateID)
     {
         if (stateID == StateID.Null)

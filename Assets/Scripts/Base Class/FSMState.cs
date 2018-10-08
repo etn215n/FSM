@@ -63,6 +63,7 @@ public class FSMState
     public virtual void OnStateSetUp() {}
     public virtual void OnStateEnter() {}
     public virtual void OnStateUpdate() {}
+    public virtual void OnStateFixedUpdate() {}
     public virtual void OnHandleInput() {}
     public virtual void OnStateExit() {}
 }
