@@ -26,7 +26,6 @@ public class PlayerIdleState : FSMState
         anim.SetInteger("StateID", 1);
         anim.SetFloat("LastMoveX", playerInput.savedAxis.x);
         anim.SetFloat("LastMoveY", playerInput.savedAxis.y);
-
         rb.velocity = Vector2.zero;
     }
 
