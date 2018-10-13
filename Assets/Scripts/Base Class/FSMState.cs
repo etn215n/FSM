@@ -7,6 +7,7 @@ public class FSMState
     protected FSM ownerFSM;
     protected StateID stateID;
     protected Dictionary<Transition, StateID> transitionMap;
+    protected Character character;
 
     public FSMState ()
     {
@@ -59,8 +60,12 @@ public class FSMState
     {
         this.ownerFSM = ownerFSM;
     }
+
+    public void SetCharacter(Character character)
+    {
+        this.character = character;
+    }
    
-    public virtual void OnStateSetUp() {}
     public virtual void OnStateEnter() {}
     public virtual void OnStateUpdate() {}
     public virtual void OnStateFixedUpdate() {}

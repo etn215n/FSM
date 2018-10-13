@@ -5,12 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour 
 {
     private FSM playerFSM;
-    public CustomInput playerInput;
+    private CustomInput playerInput;
+    private BrendanCharacter brendan;
+    private Transform transform;
 
     void Start()
     {
         playerInput = new CustomInput();
-        playerFSM = new FSM(this.gameObject);
+        brendan = new BrendanCharacter();
+        brendan.animator = GetComponent<Animator>();
+        brendan.customInput = playerInput;
+        brendan.rigidboby2d = GetComponent<Rigidbody2D>();
+        brendan.transform = GetComponent<Transform>();
+
+        playerFSM = new FSM(brendan);
         playerFSM.AddState(new PlayerIdleState());
         playerFSM.AddState(new PlayerWalkState());
         playerFSM.AddState(new PlayerRunState());

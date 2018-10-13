@@ -2,11 +2,6 @@
 
 public class PlayerRunState : FSMState
 {
-    private Animator anim;
-    private CustomInput playerInput;
-    private Rigidbody2D rb;
-    private FreeMove freeMove;
-
     public PlayerRunState() : base()
     {
         this.stateID = StateID.Run;
@@ -15,41 +10,29 @@ public class PlayerRunState : FSMState
         transitionMap.Add(Transition.ToInteract, StateID.Interact);
     }
 
-    public override void OnStateSetUp()
-    {
-        rb = ownerFSM.GetGameObject().GetComponent<Rigidbody2D>();
-        anim = ownerFSM.GetGameObject().GetComponent<Animator>();
-        playerInput = ownerFSM.GetGameObject().GetComponent<PlayerController>().playerInput;
-        freeMove = new FreeMove();
-        freeMove.moveSpeed = 300f;
-    }
-
     public override void OnStateEnter()
     {
-        anim.SetInteger("StateID", 3);
-        anim.SetFloat("MoveX", playerInput.currentAxis.x);
-        anim.SetFloat("MoveY", playerInput.currentAxis.y);
+        character.SetRunAnimation();
     }
 
     public override void OnStateUpdate()
     {
         OnHandleInput();
-        anim.SetFloat("MoveX", playerInput.currentAxis.x);
-        anim.SetFloat("MoveY", playerInput.currentAxis.y);
+        character.UpdateRunAnimation();
     }
 
     public override void OnStateFixedUpdate()
     {
-        freeMove.Move(playerInput.currentAxis, rb);
+        character.Run();
     }
 
     public override void OnHandleInput()
     {
-        if (playerInput.Get2DInput() != Vector2.zero)
+        if (character.ConditionToIdle() == false)
         {
-            if (Input.GetKeyUp(KeyCode.LeftShift))
+            if (character.ConditionToNotRun() == true)
                 SetTransition(Transition.ToWalk);
-            else if (Input.GetKey(KeyCode.E))
+            else if (character.ConditionToInteract() == true)
                 SetTransition(Transition.ToInteract);
         }
         else
