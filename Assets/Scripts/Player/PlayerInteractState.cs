@@ -16,8 +16,7 @@ public class PlayerInteractState : FSMState
         
     public override void OnStateEnter()
     {
-        character.PickUp();
-        character.Idle();
+        character.Interact();
         character.SetInteractAnimation();
         timeCounter = 0f;
     }

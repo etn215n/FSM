@@ -45,6 +45,11 @@ public class BrendanCharacter : Character
         animator.SetFloat("LastMoveY", customInput.savedAxis.y);
     }
 
+    public override void SetEquipAnimation() 
+    {
+        animator.SetInteger("StateID", (int)StateID.Equip);
+    }
+
     public override bool ConditionToWalk()
     {
         if (customInput.Get2DInput() != Vector2.zero)
@@ -85,6 +90,16 @@ public class BrendanCharacter : Character
         return false;
     }
 
+    public override bool ConditionToEquip()
+    {
+        int itemID = customInput.GetInventoryInput();
+
+        if (itemID == -1)
+            return false;
+        else
+            return true;
+    }
+
     public override void Idle()
     {
         rigidboby2d.velocity = Vector2.zero;
@@ -98,6 +113,12 @@ public class BrendanCharacter : Character
     public override void Run()
     {
         rigidboby2d.velocity = customInput.currentAxis * runSpeed * Time.deltaTime;
+    }
+
+    public override void Interact()
+    {
+        this.Idle();
+        this.PickUp();
     }
 
     public override void PickUp() 

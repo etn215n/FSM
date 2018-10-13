@@ -15,6 +15,7 @@ public class Character
     public virtual void SetWalkAnimation() {}
     public virtual void SetRunAnimation() {}
     public virtual void SetInteractAnimation() {}
+    public virtual void SetEquipAnimation() {}
 
     public virtual void UpdateWalkAnimation() {}
     public virtual void UpdateRunAnimation() {}
@@ -26,9 +27,11 @@ public class Character
     public virtual bool ConditionToRun() {return false;}
     public virtual bool ConditionToNotRun() {return false;}
     public virtual bool ConditionToInteract() {return false;}
+    public virtual bool ConditionToEquip() {return false;}
 
     public virtual void Walk() {}
     public virtual void Idle() {}
     public virtual void Run() {}
+    public virtual void Interact() {}
     public virtual void PickUp() {}
 }

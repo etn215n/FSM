@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         playerFSM.AddState(new PlayerWalkState());
         playerFSM.AddState(new PlayerRunState());
         playerFSM.AddState(new PlayerInteractState());
+        playerFSM.AddState(new PlayerEquipState());
         playerFSM.Start();
     }
 

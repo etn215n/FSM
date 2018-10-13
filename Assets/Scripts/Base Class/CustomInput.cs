@@ -4,7 +4,8 @@ public class CustomInput
 {
     public Vector2 currentAxis;
     public Vector2 savedAxis;
-
+    public int itemID;
+    
     public Vector2 Get2DInput()
     {
         Vector2 input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -20,5 +21,15 @@ public class CustomInput
             savedAxis = currentAxis;
 
         return input;
+    }
+
+    public int GetInventoryInput()
+    {
+        if (Input.GetKey(KeyCode.Alpha1))
+            return 1;
+        else if (Input.GetKey(KeyCode.Alpha2))
+            return 2;
+        else
+            return -1;
     }
 }
