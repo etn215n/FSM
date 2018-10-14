@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
         playerFSM.AddState(new PlayerRunState());
         playerFSM.AddState(new PlayerInteractState());
         playerFSM.AddState(new PlayerEquipState());
+        playerFSM.AddState(new PlayerIdleRideState());
+        playerFSM.AddState(new PlayerRideState());
+        playerFSM.AddState(new PlayerUnequipState());
         playerFSM.Start();
     }
 

@@ -8,6 +8,7 @@ public class PlayerWalkState : FSMState
         transitionMap.Add(Transition.ToIdle, StateID.Idle);
         transitionMap.Add(Transition.ToRun, StateID.Run);
         transitionMap.Add(Transition.ToInteract, StateID.Interact);
+        transitionMap.Add(Transition.ToEquip, StateID.Equip);
     }
         
     public override void OnStateEnter()
@@ -34,5 +35,7 @@ public class PlayerWalkState : FSMState
             SetTransition(Transition.ToRun);
         else if (character.ConditionToInteract() == true)
             SetTransition(Transition.ToInteract);
+        else if (character.ConditionToEquip() == true)
+            SetTransition(Transition.ToEquip);
     }
 }

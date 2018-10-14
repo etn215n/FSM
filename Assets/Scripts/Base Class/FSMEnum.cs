@@ -7,8 +7,8 @@
     Interact,
     Equip,
     Unequip,
-    Ride,
     IdleRide,
+    Ride,
     Red,
     Yellow,
     Green
@@ -24,6 +24,7 @@ public enum Transition
     ToEquip,
     ToUnequip,
     ToIdleRide,
+    ToRide,
     ToRed,
     ToYellow,
     ToGreen
