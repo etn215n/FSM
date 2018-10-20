@@ -13,10 +13,11 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = new CustomInput();
         brendan = new BrendanCharacter();
-        brendan.animator = GetComponent<Animator>();
-        brendan.customInput = playerInput;
-        brendan.rigidboby2d = GetComponent<Rigidbody2D>();
-        brendan.transform = GetComponent<Transform>();
+        
+        brendan.SetAnimator(GetComponent<Animator>());
+        brendan.Set2DRigidbody(GetComponent<Rigidbody2D>());
+        brendan.SetTransform(GetComponent<Transform>());
+        brendan.SetInput(playerInput);
 
         playerFSM = new FSM(brendan);
         playerFSM.AddState(new PlayerIdleState());

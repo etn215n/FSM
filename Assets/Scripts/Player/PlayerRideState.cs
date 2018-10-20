@@ -8,16 +8,11 @@ public class PlayerRideState : FSMState
         transitionMap.Add(Transition.ToIdleRide, StateID.IdleRide);
         transitionMap.Add(Transition.ToUnequip, StateID.Unequip);
     }
-
-    public override void OnStateEnter()
-    {
-        character.SetRideAnimation();
-    }
-
+    
     public override void OnStateUpdate()
     {
+        character.SetRideAnimation();
         OnHandleInput();
-        character.UpdateRideAnimation();
     }
 
     public override void OnStateFixedUpdate()

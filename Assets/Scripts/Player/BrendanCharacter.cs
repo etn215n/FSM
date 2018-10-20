@@ -13,64 +13,41 @@ public class BrendanCharacter : Character
         animator.SetFloat("LastMoveX", customInput.savedAxis.x);
         animator.SetFloat("LastMoveY", customInput.savedAxis.y);
     }
-
     public override void SetWalkAnimation() // Need improvement
     {
         animator.SetInteger("StateID", (int)StateID.Walk);
         animator.SetFloat("MoveX", customInput.currentAxis.x);
         animator.SetFloat("MoveY", customInput.currentAxis.y);
     }
-
-    public override void UpdateWalkAnimation() // Need improvement
-    {
-        animator.SetFloat("MoveX", customInput.currentAxis.x);
-        animator.SetFloat("MoveY", customInput.currentAxis.y);
-    }
-
     public override void SetRunAnimation()
     {
         animator.SetInteger("StateID", (int)StateID.Run);
         animator.SetFloat("MoveX", customInput.currentAxis.x);
         animator.SetFloat("MoveY", customInput.currentAxis.y);
     }
-
-    public override void UpdateRunAnimation()
-    {
-        animator.SetFloat("MoveX", customInput.currentAxis.x);
-        animator.SetFloat("MoveY", customInput.currentAxis.y);
-    }
-
     public override void SetInteractAnimation()
     {
         animator.SetInteger("StateID", (int)StateID.Interact);
         animator.SetFloat("LastMoveX", customInput.savedAxis.x);
         animator.SetFloat("LastMoveY", customInput.savedAxis.y);
     }
-
     public override void SetEquipAnimation() 
     {
         animator.SetInteger("StateID", (int)StateID.Equip);
     }
-
     public override void SetUnequipAnimation() 
     {
         animator.SetInteger("StateID", (int)StateID.Unequip);
     }
-
     public override void SetIdleRideAnimation()
     {
         animator.SetInteger("StateID", (int)StateID.IdleRide);
         animator.SetFloat("LastMoveX", customInput.savedAxis.x);
         animator.SetFloat("LastMoveY", customInput.savedAxis.y);
     }
-
     public override void SetRideAnimation()
     {
         animator.SetInteger("StateID", (int)StateID.Ride);
-    }
-
-    public override void UpdateRideAnimation()
-    {
         animator.SetFloat("MoveX", customInput.currentAxis.x);
         animator.SetFloat("MoveY", customInput.currentAxis.y);
     }
@@ -102,14 +79,6 @@ public class BrendanCharacter : Character
     public override bool ConditionToRun()
     {
         if (Input.GetKey(KeyCode.LeftShift))
-            return true;
-
-        return false;
-    }
-
-    public override bool ConditionToNotRun()
-    {
-        if (Input.GetKeyUp(KeyCode.LeftShift))
             return true;
 
         return false;
@@ -154,29 +123,18 @@ public class BrendanCharacter : Character
         return false;
     }
 
-    public override void Idle()
+    private void Move(Vector2 velocity) 
     {
-        rigidboby2d.velocity = Vector2.zero;
+        rigidboby2d.velocity = velocity * Time.deltaTime;
     }
 
-    public override void Walk()
-    {
-        rigidboby2d.velocity = customInput.currentAxis * walkSpeed * Time.deltaTime;
-    }
-
-    public override void Run()
-    {
-        rigidboby2d.velocity = customInput.currentAxis * runSpeed * Time.deltaTime;
-    }
-
-    public override void Ride()
-    {
-        rigidboby2d.velocity = customInput.currentAxis * rideSpeed * Time.deltaTime;
-    }
-
+    public override void Idle() { Move(Vector2.zero); }
+    public override void Walk() { Move(customInput.currentAxis * walkSpeed); }
+    public override void Run()  { Move(customInput.currentAxis * runSpeed);  }
+    public override void Ride() { Move(customInput.currentAxis * rideSpeed); }
     public override void Interact()
     {
-        this.Idle();
+        this.Move(Vector2.zero);
         this.PickUp();
     }
 

@@ -11,15 +11,10 @@ public class PlayerRunState : FSMState
         transitionMap.Add(Transition.ToEquip, StateID.Equip);
     }
 
-    public override void OnStateEnter()
-    {
-        character.SetRunAnimation();
-    }
-
     public override void OnStateUpdate()
     {
+        character.SetRunAnimation();
         OnHandleInput();
-        character.UpdateRunAnimation();
     }
 
     public override void OnStateFixedUpdate()
@@ -31,7 +26,7 @@ public class PlayerRunState : FSMState
     {
         if (character.ConditionToIdle() == false)
         {
-            if (character.ConditionToNotRun() == true)
+            if (character.ConditionToRun() == false)
                 SetTransition(Transition.ToWalk);
             else if (character.ConditionToInteract() == true)
                 SetTransition(Transition.ToInteract);

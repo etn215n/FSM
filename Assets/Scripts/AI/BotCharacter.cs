@@ -19,21 +19,9 @@ public class BotCharacter : Character
         animator.SetFloat("MoveY", customInput.currentAxis.y);
     }
 
-    public override void UpdateWalkAnimation() // Need improvement
-    {
-        animator.SetFloat("MoveX", customInput.currentAxis.x);
-        animator.SetFloat("MoveY", customInput.currentAxis.y);
-    }
-
     public override void SetRunAnimation()
     {
         animator.SetInteger("StateID", 3);
-        animator.SetFloat("MoveX", customInput.currentAxis.x);
-        animator.SetFloat("MoveY", customInput.currentAxis.y);
-    }
-
-    public override void UpdateRunAnimation()
-    {
         animator.SetFloat("MoveX", customInput.currentAxis.x);
         animator.SetFloat("MoveY", customInput.currentAxis.y);
     }
@@ -62,7 +50,11 @@ public class BotCharacter : Character
 
     public override void Walk()
     {
-        rigidboby2d.velocity = Vector2.up * walkSpeed * Time.deltaTime;
+        Vector3 toward3d = target.transform.position - this.transform.position;
+        Vector2 toward2d = new Vector2(toward3d.x, toward3d.y);
+
+
+        rigidboby2d.velocity = toward2d * walkSpeed * Time.deltaTime;
     }
 
     public override void Run()

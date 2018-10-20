@@ -10,16 +10,11 @@ public class PlayerWalkState : FSMState
         transitionMap.Add(Transition.ToInteract, StateID.Interact);
         transitionMap.Add(Transition.ToEquip, StateID.Equip);
     }
-        
-    public override void OnStateEnter()
-    {
-        character.SetWalkAnimation();
-    }
 
     public override void OnStateUpdate()
     {
+        character.SetWalkAnimation();
         OnHandleInput();
-        character.UpdateWalkAnimation();
     }
 
     public override void OnStateFixedUpdate()

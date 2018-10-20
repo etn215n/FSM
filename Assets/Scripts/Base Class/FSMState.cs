@@ -58,17 +58,23 @@ public class FSMState
 
     public void SetFSM(FSM ownerFSM)
     {
-        this.ownerFSM = ownerFSM;
+        if (this.ownerFSM == null)
+            this.ownerFSM = ownerFSM;
+        else    
+            Debug.Log("Owner FSM of this state is already set.");
     }
 
     public void SetCharacter(Character character)
     {
-        this.character = character;
+        if (this.character == null)
+            this.character = character;
+        else
+            Debug.Log("Character of this state is already set.");
     }
    
-    public virtual void OnStateEnter() {}
-    public virtual void OnStateUpdate() {}
+    public virtual void OnStateEnter()       {}
+    public virtual void OnStateUpdate()      {}
     public virtual void OnStateFixedUpdate() {}
-    public virtual void OnHandleInput() {}
-    public virtual void OnStateExit() {}
+    public virtual void OnHandleInput()      {}
+    public virtual void OnStateExit()        {}
 }

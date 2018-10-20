@@ -8,6 +8,9 @@ public class FSM
     private FSMState lastState;
     private readonly Character character;
 
+    public FSMState CurrentState { get { return currentState; } }
+    public FSMState LastState    { get { return lastState;    } }
+
     public FSM(Character character)
     {
         stateList = new List<FSMState>();
@@ -21,12 +24,6 @@ public class FSM
             Debug.Log("Invalid State.");
             return;
         }
-
-        if (stateList.Count == 0)
-        {
-            currentState = newState;
-        }
-
         foreach(FSMState state in stateList)
         {
             if (state.ID == newState.ID)
@@ -36,44 +33,18 @@ public class FSM
             }
         }
 
+        if (stateList.Count == 0)
+        {
+            currentState = newState;
+        }
+
         stateList.Add(newState);
         newState.SetFSM(this);
         newState.SetCharacter(this.character);
     } 
 
-    public FSMState CurrentState
-    {
-        get { return currentState; }
-    }
-
-    public FSMState LastState
-    {
-        get { return lastState; }
-    }
-
-    public void Start()
-    {
-        currentState.OnStateEnter();
-    }
-
-    public void Update()
-    {
-        currentState.OnStateUpdate();
-    }
-
-    public void FixedUpdate()
-    {
-        currentState.OnStateFixedUpdate();
-    }
-
     public void SetState(StateID stateID)
     {
-        if (stateID == StateID.Null)
-        {
-            Debug.Log("Invalid State.");
-            return;
-        }
-
         foreach (FSMState state in stateList)
         {
             if (state.ID == stateID)
@@ -82,10 +53,28 @@ public class FSM
                 lastState = currentState;
                 currentState = state;
                 currentState.OnStateEnter();
+                return;
             }
         }
+
+        Debug.Log("Invalid state or state does not belong to this FSM.");
     }
 
-    public Character GetCharacter() { return character; }
-}
+    public void SetEntryState(StateID stateID)
+    {
+        foreach (FSMState state in stateList)
+        {
+            if (state.ID == stateID)
+            {
+                currentState = state;
+                return;
+            }
+        }
 
+        Debug.Log("Invalid state or state does not belong to this FSM.");
+    }
+
+    public void Start()       { currentState.OnStateEnter();       }
+    public void Update()      { currentState.OnStateUpdate();      }
+    public void FixedUpdate() { currentState.OnStateFixedUpdate(); }
+}

@@ -14,13 +14,11 @@ public class BotController : MonoBehaviour
     {
         botInput = new CustomInput();
         bot = new BotCharacter();
-        bot.animator = GetComponent<Animator>();
-        bot.rigidboby2d = GetComponent<Rigidbody2D>();
-        bot.transform = GetComponent<Transform>();
-        bot.target = target;
-        bot.customInput = botInput;
-        bot.customInput.currentAxis = Vector2.up;
-        bot.customInput.savedAxis = Vector2.up;
+        bot.SetAnimator(GetComponent<Animator>());
+        bot.Set2DRigidbody(GetComponent<Rigidbody2D>());
+        bot.SetTransform(GetComponent<Transform>());
+        bot.SetTarget(target);
+        bot.SetInput(botInput);
 
         botFSM = new FSM(bot);
         botFSM.AddState(new PlayerIdleState());
@@ -38,5 +36,4 @@ public class BotController : MonoBehaviour
     {
         botFSM.FixedUpdate();
     }
-
 }

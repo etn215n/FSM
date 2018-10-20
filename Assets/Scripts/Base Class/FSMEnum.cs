@@ -1,17 +1,15 @@
 ﻿public enum StateID
 {
-    Null,
-    Idle,
-    Walk,
-    Run,
-    Interact,
-    Equip,
-    Unequip,
-    IdleRide,
-    Ride,
-    Red,
-    Yellow,
-    Green
+    Null        = 0,
+    Idle        = 1,
+    Walk        = 2,
+    Run         = 3,
+    Interact    = 4,
+    Equip       = 5,
+    Unequip     = 6,
+    IdleRide    = 7,
+    Ride        = 8,
+    HoldItem    = 9,
 }
 
 public enum Transition
@@ -25,7 +23,4 @@ public enum Transition
     ToUnequip,
     ToIdleRide,
     ToRide,
-    ToRed,
-    ToYellow,
-    ToGreen
 }
