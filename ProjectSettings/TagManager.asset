@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collectible
+  - Fog
+  - Flashlight
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - Player
   - Object
-  - 
+  - Fog
   - 
   - 
   - 
@@ -41,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3117022355
+    locked: 0
+  - name: Object
+    uniqueID: 4038435637
     locked: 0
