@@ -1,28 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using StateMachine;
 
 public class PlayerIdleRideState : FSMState
 {
-	public PlayerIdleRideState() : base()
+	public PlayerIdleRideState()
 	{
 		this.stateID = StateID.IdleRide;
 		transitionMap.Add(Transition.ToRide, StateID.Ride);
         transitionMap.Add(Transition.ToUnequip, StateID.Unequip);
 	}
 	
-	public override void OnStateEnter()
+	protected override void OnStateEnter()
 	{
 		character.SetIdleRideAnimation();
 		character.Idle();
 	}
 
-	public override void OnStateUpdate()
+    protected override void OnStateUpdate()
     {
     	OnHandleInput();
     }
 
-    public override void OnHandleInput()
+    protected override void OnHandleInput()
     {
         if (character.ConditionToRide() == true)
             SetTransition(Transition.ToRide);

@@ -1,26 +1,26 @@
-﻿using UnityEngine;
+﻿using StateMachine;
 
 public class PlayerRideState : FSMState
 {
-    public PlayerRideState() : base()
+    public PlayerRideState()
     {
         this.stateID = StateID.Ride;
         transitionMap.Add(Transition.ToIdleRide, StateID.IdleRide);
         transitionMap.Add(Transition.ToUnequip, StateID.Unequip);
     }
     
-    public override void OnStateUpdate()
+    protected override void OnStateUpdate()
     {
         character.SetRideAnimation();
         OnHandleInput();
     }
 
-    public override void OnStateFixedUpdate()
+    protected override void OnStateFixedUpdate()
     {
         character.Ride();
     }
 
-    public override void OnHandleInput()
+    protected override void OnHandleInput()
     {
         if (character.ConditionToIdle() == true)
             SetTransition(Transition.ToIdleRide);

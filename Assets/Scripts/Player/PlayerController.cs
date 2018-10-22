@@ -1,23 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StateMachine;
 
 public class PlayerController : MonoBehaviour 
 {
     private FSM playerFSM;
-    private CustomInput playerInput;
     private BrendanCharacter brendan;
-    private Transform transform;
 
     void Start()
     {
-        playerInput = new CustomInput();
         brendan = new BrendanCharacter();
         
         brendan.SetAnimator(GetComponent<Animator>());
         brendan.Set2DRigidbody(GetComponent<Rigidbody2D>());
         brendan.SetTransform(GetComponent<Transform>());
-        brendan.SetInput(playerInput);
+        brendan.SetInput(new CustomInput());
 
         playerFSM = new FSM(brendan);
         playerFSM.AddState(new PlayerIdleState());
@@ -40,5 +38,4 @@ public class PlayerController : MonoBehaviour
     {
         playerFSM.FixedUpdate();
     }
-    
 }

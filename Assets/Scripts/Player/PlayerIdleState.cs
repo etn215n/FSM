@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using StateMachine;
 
 public class PlayerIdleState : FSMState
 {  
-    public PlayerIdleState() : base()
+    public PlayerIdleState()
     { 
         this.stateID = StateID.Idle;
         transitionMap.Add(Transition.ToWalk, StateID.Walk);
@@ -11,18 +11,18 @@ public class PlayerIdleState : FSMState
         transitionMap.Add(Transition.ToEquip, StateID.Equip);
     }
        
-    public override void OnStateEnter()
+    protected override void OnStateEnter()
     {
         character.SetIdleAnimation();
         character.Idle();
     }
 
-    public override void OnStateUpdate()
+    protected override void OnStateUpdate()
     {
         OnHandleInput();
     }      
 
-    public override void OnHandleInput()
+    protected override void OnHandleInput()
     {
         if (character.ConditionToWalk() == true)
             SetTransition(Transition.ToWalk);

@@ -1,24 +1,24 @@
-﻿using UnityEngine;
+﻿using StateMachine;
 
 public class PlayerUnequipState : FSMState 
 {
-    public PlayerUnequipState() : base()
+    public PlayerUnequipState()
     {
         this.stateID = StateID.Unequip;
         transitionMap.Add(Transition.ToIdle, StateID.Idle);
     }
 
-    public override void OnStateEnter()
+    protected override void OnStateEnter()
     {
         character.SetUnequipAnimation();  
     }
 
-    public override void OnStateUpdate()
+    protected override void OnStateUpdate()
     {
         OnHandleInput();
     }
 
-    public override void OnHandleInput()
+    protected override void OnHandleInput()
     {
         SetTransition(Transition.ToIdle);
     }

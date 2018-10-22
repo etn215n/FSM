@@ -2,13 +2,13 @@
 	"folders":
 	[
 		{
-			"path": "Assets\\Scripts\\Base Class"
-		},
-		{
 			"path": "Assets\\Scripts\\AI"
 		},
 		{
 			"path": "Assets\\Scripts\\Player"
+		},
+		{
+			"path": "Assets\\Plugins"
 		}
 	]
 }

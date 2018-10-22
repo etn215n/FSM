@@ -27,6 +27,8 @@ public class CustomInput
     {
         if (Input.GetKey(KeyCode.Alpha1))
             return 1;
+        else if (Input.GetKey(KeyCode.Alpha2))
+            return 2;
         else
             return -1;
     }

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using StateMachine;
 
 public class PlayerRunState : FSMState
 {
-    public PlayerRunState() : base()
+    public PlayerRunState()
     {
         this.stateID = StateID.Run;
         transitionMap.Add(Transition.ToIdle, StateID.Idle);
@@ -11,18 +11,18 @@ public class PlayerRunState : FSMState
         transitionMap.Add(Transition.ToEquip, StateID.Equip);
     }
 
-    public override void OnStateUpdate()
+    protected override void OnStateUpdate()
     {
         character.SetRunAnimation();
         OnHandleInput();
     }
 
-    public override void OnStateFixedUpdate()
+    protected override void OnStateFixedUpdate()
     {
         character.Run();
     }
 
-    public override void OnHandleInput()
+    protected override void OnHandleInput()
     {
         if (character.ConditionToIdle() == false)
         {

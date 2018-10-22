@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"bot",
+				"botInput"
+			],
+			[
+				"Ch",
+				"CheckNullState"
+			],
+			[
+				"Che",
+				"CheckStateList"
+			],
+			[
+				"new",
+				"newState"
+			],
+			[
 				"In",
 				"Interact"
 			],
@@ -32,64 +48,37 @@
 	"buffers":
 	[
 		{
+			"file": "Assets/Scripts/Player/PlayerController.cs",
+			"settings":
+			{
+				"buffer_size": 1128,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "Assets/Scripts/Player/BrendanCharacter.cs",
 			"settings":
 			{
-				"buffer_size": 4832,
+				"buffer_size": 4180,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Assets/Scripts/Player/PlayerEquipState.cs",
+			"file": "Assets/Plugins/FSMState.cs",
 			"settings":
 			{
-				"buffer_size": 537,
+				"buffer_size": 2354,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Assets/Scripts/Player/PlayerIdleRideState.cs",
+			"file": "Assets/Plugins/FSM.cs",
 			"settings":
 			{
-				"buffer_size": 757,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Scripts/Player/PlayerRideState.cs",
-			"settings":
-			{
-				"buffer_size": 840,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Scripts/Base Class/Character.cs",
-			"settings":
-			{
-				"buffer_size": 1698,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Scripts/Base Class/FSMEnum.cs",
-			"settings":
-			{
-				"buffer_size": 378,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Scripts/Base Class/CustomInput.cs",
-			"settings":
-			{
-				"buffer_size": 708,
+				"buffer_size": 2372,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -127,29 +116,33 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/AI",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player"
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Plugins"
 	],
 	"file_history":
 	[
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/Character.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/FSM.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/AI/BotCharacter.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/BrendanCharacter.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/CustomInput.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/FSMEnum.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/AI/BotController.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerRunState.cs",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerEquipState.cs",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerUnequipState.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerWalkState.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerRideState.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerIdleRideState.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerEquipState.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/FSMState.cs",
+		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerUnequipState.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerController.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerIdleState.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/PlayerInteractState.cs",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Player/BrendanCharacter.cs",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/AI/BotCharacter.cs",
 		"/C/Users/Xenos/Desktop/test branch.sublime-project",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/CustomInput.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/AI/AIWalkState.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/AI/AIIdleState.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Character.cs",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/FSMState.cs",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/FSM.cs",
-		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/Base Class/FSMEnum.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/PlayerInteractState.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/PlayerRunState.cs",
 		"/C/Users/Xenos/Desktop/FSM/Assets/Scripts/PlayerWalkState.cs",
@@ -184,6 +177,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"private",
+			"brendan",
 			"playerFSM"
 		],
 		"highlight": true,
@@ -202,16 +197,16 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/Scripts/Player/BrendanCharacter.cs",
+					"file": "Assets/Scripts/Player/PlayerController.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4832,
+						"buffer_size": 1128,
 						"regions":
 						{
 						},
@@ -227,64 +222,6 @@
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/Scripts/Player/PlayerEquipState.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 537,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 139.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Assets/Scripts/Player/PlayerIdleRideState.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 757,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								585,
-								585
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -294,12 +231,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "Assets/Scripts/Player/PlayerRideState.cs",
+					"buffer": 1,
+					"file": "Assets/Scripts/Player/BrendanCharacter.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 840,
+						"buffer_size": 4180,
 						"regions":
 						{
 						},
@@ -330,20 +267,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 4,
-					"file": "Assets/Scripts/Base Class/Character.cs",
+					"buffer": 2,
+					"file": "Assets/Plugins/FSMState.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1698,
+						"buffer_size": 2354,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								554,
-								554
+								2182,
+								2182
 							]
 						],
 						"settings":
@@ -356,24 +293,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "Assets/Scripts/Base Class/FSMEnum.cs",
-					"semi_transient": false,
+					"buffer": 3,
+					"file": "Assets/Plugins/FSM.cs",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 378,
+						"buffer_size": 2372,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								293,
-								293
+								0,
+								0
 							]
 						],
 						"settings":
@@ -387,36 +324,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Assets/Scripts/Base Class/CustomInput.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 708,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								663,
-								663
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
 					"type": "text"
 				}
 			]
