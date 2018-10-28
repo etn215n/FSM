@@ -10,8 +10,7 @@
         Equip              = 5,
         Unequip            = 6,
         IdleRide           = 7,
-        Ride               = 8,
-        EquipFlashlight    = 9
+        Ride               = 8
     }
 
     public enum Transition
