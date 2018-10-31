@@ -10,11 +10,13 @@ namespace StateMachine
         protected Transform transform;
         protected GameObject target;
 
+
         public virtual void SetAnimator(Animator animator)          { this.animator = animator; }
         public virtual void Set2DRigidbody(Rigidbody2D rigidboby2d) { this.rigidboby2d = rigidboby2d; }
         public virtual void SetInput(CustomInput customInput)       { this.customInput = customInput; }
         public virtual void SetTarget(GameObject target)            { this.target = target; }
         public virtual void SetTransform(Transform transform)       { this.transform = transform; }
+       
 
         public virtual void SetIdleAnimation() {}
         public virtual void SetWalkAnimation() {}
@@ -34,11 +36,15 @@ namespace StateMachine
         public virtual bool ConditionToRide()            { return false; }
         public virtual bool ConditionToIdleRide()        { return false; }
         public virtual bool ConditionToEquipFlashlight() { return false; }
+        public virtual bool ConditionToPatrol()          { return false; }
+        public virtual bool ConditionToChase()           { return false; }
 
         public virtual void Walk() {}
         public virtual void Idle() {}
         public virtual void Run() {}
         public virtual void Ride() {}
+        public virtual void Patrol() {}
+        public virtual void Chase() {}
         public virtual void Interact() {}
         public virtual void PickUp() {}
     }

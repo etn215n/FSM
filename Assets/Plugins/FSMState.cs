@@ -79,6 +79,7 @@ namespace StateMachine
         protected internal virtual void OnStateUpdate() {}
         protected internal virtual void OnStateFixedUpdate() {}
         protected internal virtual void OnHandleInput() {}
+        protected internal virtual void OnStatePaused() {}
         protected internal virtual void OnStateExit() {}
     }
 }

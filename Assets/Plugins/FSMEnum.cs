@@ -10,7 +10,9 @@
         Equip              = 5,
         Unequip            = 6,
         IdleRide           = 7,
-        Ride               = 8
+        Ride               = 8,
+        Patrol             = 9,
+        Chase              = 10
     }
 
     public enum Transition
@@ -24,5 +26,7 @@
         ToUnequip,
         ToIdleRide,
         ToRide,
+        ToPatrol,
+        ToChase
     }
 }
