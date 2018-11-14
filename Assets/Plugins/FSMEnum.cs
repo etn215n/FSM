@@ -12,7 +12,8 @@
         IdleRide           = 7,
         Ride               = 8,
         Patrol             = 9,
-        Chase              = 10
+        Chase              = 10,
+        Void               = 512
     }
 
     public enum Transition

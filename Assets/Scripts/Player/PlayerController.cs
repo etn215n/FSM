@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         playerFSM.Update();
+
+        if (Input.GetKey(KeyCode.G))
+            playerFSM.Pause();
+        else if (Input.GetKey(KeyCode.H))
+            playerFSM.Resume();
     }
 
     void FixedUpdate()

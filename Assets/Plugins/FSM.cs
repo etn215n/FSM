@@ -5,16 +5,10 @@ namespace StateMachine
 {
     public class FSM
     {
-        protected internal delegate void FunctionSelector();
         private readonly Character character;
         private List<FSMState> stateList;
         private FSMState currentState;
         private FSMState lastState;
-        private bool isStarted;
-        private FunctionSelector update;
-        private FunctionSelector fixedupdate;
-        /*-------------------------------------------------------------------------*/
-        private void EmptyFunction() {}
         /*-------------------------------------------------------------------------*/
         public FSM(Character character)
         {
@@ -33,35 +27,25 @@ namespace StateMachine
                 return;
             }
 
-            update      = currentState.OnStateUpdate;      
-            fixedupdate = currentState.OnStateFixedUpdate;
-
-            isStarted = true;
             currentState.OnStateEnter();       
         }
 
-        /*public void Resume()
+        public void Resume()
         {
-            update      = currentState.OnStateUpdate;
-            fixedupdate = currentState.OnStateFixedUpdate;
         }
 
         public void Pause()
         {
-            currentState.OnStatePaused();
-
-            update      = EmptyFunction;
-            fixedupdate = EmptyFunction;
-        }*/
+        }
 
         public void Update()      
         { 
-            update();    
+            currentState.OnStateUpdate(); 
         }
 
         public void FixedUpdate() 
         { 
-            fixedupdate();
+            currentState.OnStateFixedUpdate();
         }
         /*-------------------------------------------------------------------------*/
         public void AddState(FSMState newState)
